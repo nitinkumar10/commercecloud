@@ -1,0 +1,139 @@
+{
+    "commerceSuiteVersion": "6.7.0.1",
+    "extensions": [
+        "cloudstorestorefront",
+        "backoffice",
+        "platformbackoffice",
+        "cloudstoreinitialdata",
+        "cloudstorefulfilmentprocess",
+        "cloudstorefacades",
+        "cloudstorecore",
+        "cloudstorecockpits"
+    ],
+    "properties": [
+        {
+            "key": "lang.packs",
+            "value": "de,en,es,es_CO,fr,it,ja,ko,pt,ru,zh,zh_TW,hi,id,cs,cy"
+        },
+        {
+            "key": "test.property.1",
+            "value": "test-property-1-value-prod",
+            "persona": "production"
+        },
+        {
+            "key": "test.property.1",
+            "value": "test-property-1-value-dev",
+            "persona": "development"
+        },
+        {
+            "key": "test.property.1",
+            "value": "test-property-1-value"
+        },
+        {
+            "key": "test.property.2",
+            "value": "test-property-2-value"
+        }
+    ],
+    "aspects": [
+        {
+            "name": "backoffice",
+            "properties": [
+                {
+                    "key": "test.property.1",
+                    "value": "test.property-1-value-prod-backoffice",
+                    "persona": "production"
+                },
+                {
+                    "key": "test.property.2",
+                    "value": "test.property-2-value-backoffice"
+                }
+            ],
+            "webapps": [
+                {
+                    "name": "hac",
+                    "contextPath": "/hac"
+                },
+                {
+                    "name": "mediaweb",
+                    "contextPath": "/medias"
+                },
+                {
+                    "name": "backoffice",
+                    "contextPath": "/backoffice"
+                }
+            ]
+        },
+        {
+            "name": "accstorefront",
+            "properties": [
+                {
+                    "key": "spring.session.enabled",
+                    "value": "true"
+                },
+                {
+                    "key": "spring.session.cloudstorestorefront.save",
+                    "value":"async"
+                },
+                {
+                    "key": "spring.session.cloudstorestorefront.cookie.name",
+                    "value": "JSESSIONID"
+                },
+                {
+                    "key": "spring.session.cloudstorestorefront.cookie.path",
+                    "value": "/"
+                },
+                {
+                    "key":"storefrontContextRoot",
+                    "value":""
+                }
+            ],
+            "webapps": [
+                {
+                    "name": "mediaweb",
+                    "contextPath": "/medias"
+                },
+                {
+                    "name": "cloudstorestorefront",
+                    "contextPath": ""
+                },
+                {
+                    "name": "acceleratorservices",
+                    "contextPath": "/acceleratorservices"
+                }
+            ]
+        },
+        {
+            "name": "backgroundProcessing",
+            "properties": [],
+            "webapps": [
+                {
+                    "name": "hac",
+                    "contextPath": ""
+                },
+                {
+                    "name": "mediaweb",
+                    "contextPath": "/medias"
+                }
+            ]
+        }
+    ],
+    "tests": {
+        "extensions": [
+        ],
+        "annotations": [
+            "UnitTests",
+            "IntegrationTests"
+        ],
+        "packages": [
+            "com.acme.*"
+        ]
+    },
+    "webTests": {
+        "extensions": [
+            "cloudstorestorefront"
+        ],
+        "excludedPackages": [
+            "de.hybris.*"
+        ]
+    }
+}
